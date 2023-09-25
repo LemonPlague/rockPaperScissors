@@ -1,12 +1,15 @@
 //declare variables and their values are assigned by the functions below.
 //these variables will hold strings corresponding to either rock, paper, scissors.
-let playerChoice ;
+let playerChoice;
 let computerChoice;
 //string variable to pass from playRound() to game()
 let score;
 //integer variable to count number of games played.
 let gameCount = 0;
 
+
+
+//start the game!
 game();
 
 
@@ -18,11 +21,10 @@ game();
 //function to get the player's choice via prompt. Player will type their choice
 //which is received as a string and returned.
 function getPlayerChoice() {
-    //let x = prompt("Which do you choose?", "");
-    //let y = x.toLowerCase();
-    let x = toLowerCase(prompt(`rock, paper, or scissors?`, `Game ${gameCount}`));
-    console.log(`Player throws ${x}`)
-    return x;
+    let x = prompt("rock, paper or scissors?", "");
+    let y = x.toLowerCase();
+    console.log(`Player throws ${y}`)
+    return y;
 }
 
 
@@ -34,19 +36,19 @@ function getComputerChoice () {
     let x = Math.floor((Math.random() * 3) + 1);
     switch (x) {
         case 1:
-                return "rock"
-                console.log(`Computer throws rock`);
-                break;
+            console.log(`Computer throws rock`);
+            return "rock"
+            break;
 
         case 2:
-                return "paper"
-                console.log(`Computer throws paper.`);
-                break;
+            console.log("Computer throws paper.");
+            return "paper"                
+            break;
 
         case 3:
-                return "scissors"
-                console.log(`Computer throws scissors`);
-                break;
+            console.log(`Computer throws scissors`);
+            return "scissors"                
+            break;
     }
 }
 
