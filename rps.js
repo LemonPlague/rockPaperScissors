@@ -56,7 +56,7 @@ function getComputerChoice () {
 //with the results being logged in the console. The function utilizes
 //two Switch Conditionals, 3 potential outcomes for each potential
 //choice the player can make.
-function playRound(computerChoice, playerChoice) {
+function playRound() {
     switch (playerChoice)  {
         case "rock":
             switch (computerChoice) {
