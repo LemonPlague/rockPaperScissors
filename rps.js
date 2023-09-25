@@ -15,8 +15,9 @@ playRound();
 //which is received as a string and returned.
 function getPlayerChoice() {
     let x = prompt("Which do you choose?", "");
-    console.log(`Player throws ${x}`)
-    return x;
+    let y = x.toLowerCase();
+    console.log(`Player throws ${y}`)
+    return y;
 }
 
 
