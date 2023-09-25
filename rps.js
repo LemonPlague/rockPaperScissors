@@ -14,10 +14,11 @@ playRound();
 //function to get the player's choice via prompt. Player will type their choice
 //which is received as a string and returned.
 function getPlayerChoice() {
-    let x = prompt("Which do you choose?", "");
-    let y = x.toLowerCase();
-    console.log(`Player throws ${y}`)
-    return y;
+    //let x = prompt("Which do you choose?", "");
+    //let y = x.toLowerCase();
+    let x = toLowerCase(prompt("Which do you choose?", ""));
+    console.log(`Player throws ${x}`)
+    return x;
 }
 
 
@@ -54,15 +55,18 @@ function playRound(computerChoice, playerChoice) {
         case "rock":
             switch (computerChoice) {
                 case "rock":
-                    console.log("Aiko");
+                    console.log("Draw");
+                    return "draw";
                     break;
                 
                 case "paper":
                     console.log("You Lose");
+                    return "lose";
                     break;
 
                 case "scissors":
                     console.log("You Win");
+                    return "win";
                     break;
             }
         
@@ -70,14 +74,17 @@ function playRound(computerChoice, playerChoice) {
             switch (computerChoice) {
                 case "rock":
                     console.log("You Win");
+                    return "win";
                     break;
                 
                 case "paper":
-                    console.log("Aiko");
+                    console.log("Draw");
+                    return "draw";
                     break;
 
                 case "scissors":
                     console.log("You Lose");
+                    return "lose";
                     break;
             }
 
@@ -85,14 +92,17 @@ function playRound(computerChoice, playerChoice) {
             switch (computerChoice) {
                 case "rock":
                     console.log("You Lose");
+                    return "lose";
                     break;
                 
                 case "paper":
                     console.log("You Win");
+                    return "win";
                     break;
 
                 case "scissors":
-                    console.log("Aiko");
+                    console.log("Draw");
+                    return "draw";
                     break;
             }
     }
