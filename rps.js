@@ -109,8 +109,8 @@ function playRound() {
 }
 
 //initialize two new variables that are used to keep track of both player and
-//computer scores individually. Next is a for loop which will play 5 games and
-//track the results of each game, adding up either the player's score or the 
+//computer scores individually. Next is a for loop which will play 5 rounds and
+//track the results of each round, adding up either the player's score or the 
 //computer's score after each round is played. Finally at the end of the 5th
 //round the final score is presented in the console.
 function game(score)  {
