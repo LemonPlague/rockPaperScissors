@@ -64,12 +64,10 @@ function playRound(computerChoice, playerChoice) {
                     break;
                 
                 case "paper":
-                    console.log("You Lose");
                     return "lose";
                     break;
 
                 case "scissors":
-                    console.log("You Win");
                     return "win";
                     break;
             }
@@ -77,7 +75,6 @@ function playRound(computerChoice, playerChoice) {
         case "paper":
             switch (computerChoice) {
                 case "rock":
-                    console.log("You Win");
                     return "win";
                     break;
                 
@@ -87,7 +84,6 @@ function playRound(computerChoice, playerChoice) {
                     break;
 
                 case "scissors":
-                    console.log("You Lose");
                     return "lose";
                     break;
             }
@@ -95,12 +91,10 @@ function playRound(computerChoice, playerChoice) {
         case "scissors":
             switch (computerChoice) {
                 case "rock":
-                    console.log("You Lose");
                     return "lose";
                     break;
                 
                 case "paper":
-                    console.log("You Win");
                     return "win";
                     break;
 
@@ -112,13 +106,43 @@ function playRound(computerChoice, playerChoice) {
     }
 }
 
+//initialize two new variables that are used to keep track of both player and
+//computer scores individually. Next is a for loop which will play 5 games and
+//track the results of each game, adding up either the player's score or the 
+//computer's score after each round is played. Finally at the end of the 5th
+//round the final score is presented in the console.
 function game(score)  {
+    let playerScore = 0;
+    let computerScore = 0;
 
     for (let i = 1; i <= 5; i ++) {
         gameCount = i;
         playerChoice = getPlayerChoice();
         computerChoice = getComputerChoice();
         score = playRound();
-        
+
+        switch (score) {
+            case "win":
+                playerScore ++;
+                console.log(`You win round ${gameCount}`)
+                break;
+
+            case "lose":
+                computerScore ++;
+                console.log(`You lose round ${gameCount}`)
+                break;
+        }        
+    }
+
+    switch (gameCount) {
+        case 5:
+            if (playerScore > computerScore) {
+                console.log(`Player is victorious with ${playerScore} of 5 wins!`);
+            } else if (computerScore > playerScore) {
+                console.log(`Computer is victorious with ${computerScore} of 5 wins`);
+            } else {
+                console.log(`Player has ${playerScore} wins, Computer has ${computerScore} wins. It's a draw.`)
+            }
+            break;
     }
 }
