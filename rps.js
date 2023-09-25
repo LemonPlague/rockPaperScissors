@@ -1,9 +1,13 @@
 //declare variables and their values are assigned by the functions below.
 //these variables will hold strings corresponding to either rock, paper, scissors.
-const playerChoice = getPlayerChoice();
-const computerChoice = getComputerChoice();
+let playerChoice ;
+let computerChoice;
+//string variable to pass from playRound() to game()
+let score;
+//integer variable to count number of games played.
+let gameCount = 0;
 
-playRound();
+game();
 
 
 
@@ -16,7 +20,7 @@ playRound();
 function getPlayerChoice() {
     //let x = prompt("Which do you choose?", "");
     //let y = x.toLowerCase();
-    let x = toLowerCase(prompt("Which do you choose?", ""));
+    let x = toLowerCase(prompt(`rock, paper, or scissors?`, `Game ${gameCount}`));
     console.log(`Player throws ${x}`)
     return x;
 }
@@ -105,5 +109,16 @@ function playRound(computerChoice, playerChoice) {
                     return "draw";
                     break;
             }
+    }
+}
+
+function game(score)  {
+
+    for (let i = 1; i <= 5; i ++) {
+        gameCount = i;
+        playerChoice = getPlayerChoice();
+        computerChoice = getComputerChoice();
+        score = playRound();
+        
     }
 }
