@@ -108,11 +108,8 @@ function playRound() {
     }
 }
 
-//initialize two new variables that are used to keep track of both player and
-//computer scores individually. Next is a for loop which will play 5 rounds and
-//track the results of each round, adding up either the player's score or the 
-//computer's score after each round is played. Finally at the end of the 5th
-//round the final score is presented in the console.
+//the following logic is to automatically play a set of 5 games
+/*
 function game(score)  {
     let playerScore = 0;
     let computerScore = 0;
@@ -135,7 +132,9 @@ function game(score)  {
                 break;
         }        
     }
+    
 
+    
     switch (gameCount) {
         case 5:
             if (playerScore > computerScore) {
@@ -147,4 +146,5 @@ function game(score)  {
             }
             break;
     }
-}
+    
+} */
