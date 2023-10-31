@@ -6,17 +6,6 @@ let computerChoice;
 let score;
 //integer variable to count number of games played.
 let gameCount = 0;
-let clickedButton = ''
-
-/*
-const rockBTN = document.getElementById('rockBtn');
-const paperBTN = document.getElementById('paperBtn');
-const scissorsBTN = document.getElementById('scissorsBtn');
-
-rockBTN.addEventListener('click', playRound);
-paperBTN.addEventListener('click', playRound);
-scissorsBTN.addEventListener('click', playRound);
-*/
 
 
 const rpsButtons = document.querySelectorAll('.playerChoice');
@@ -28,11 +17,11 @@ rpsButtons.forEach(x => {
     })
 });
 
-function myFunction(el) {
-    //console.log(el);
-    //let text = el.textContent;
+function myFunction(button) {
+    //console.log(button);
+    //let text = button.textContent;
     //console.log(text);
-   playRound(el.textContent)
+   playRound(button.textContent)
 }
 
 
@@ -40,9 +29,6 @@ function myFunction(el) {
 //game();
 
 
-
-
-// FUNCTIONS BELOW
 
 
 //function to get the player's choice via prompt. Player will type their choice
