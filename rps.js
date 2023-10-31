@@ -7,10 +7,17 @@ let score;
 //integer variable to count number of games played.
 let gameCount = 0;
 
+const rockBTN = document.getElementById('rockBtn');
+const paperBTN = document.getElementById('paperBtn');
+const scissorsBTN = document.getElementById('scissorsBtn');
+
+rockBTN.addEventListener('click', playRound);
+paperBTN.addEventListener('click', playRound);
+scissorsBTN.addEventListener('click', playRound);
 
 
 //start the game!
-game();
+//game();
 
 
 
@@ -20,12 +27,14 @@ game();
 
 //function to get the player's choice via prompt. Player will type their choice
 //which is received as a string and returned.
+/*
 function getPlayerChoice() {
     let x = prompt("rock, paper or scissors?", "");
     let y = x.toLowerCase();
     console.log(`Player throws ${y}`)
     return y;
-}
+} 
+*/
 
 
 //function to get the computer's choice. This function will randomly select a number
@@ -53,10 +62,12 @@ function getComputerChoice () {
 }
 
 //This function will play a single round of Rock Paper Scissors
-//with the results being logged in the console. The function utilizes
-//two Switch Conditionals, 3 potential outcomes for each potential
-//choice the player can make.
-function playRound() {
+//with the results being logged in the console.
+function playRound(playerChoice) {
+
+    computerChoice = getComputerChoice();
+
+
     switch (playerChoice)  {
         case "rock":
             switch (computerChoice) {
@@ -147,4 +158,4 @@ function game(score)  {
             break;
     }
     
-} */
+}  */
