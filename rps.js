@@ -6,7 +6,9 @@ let computerChoice;
 let score;
 //integer variable to count number of games played.
 let gameCount = 0;
+let clickedButton = ''
 
+/*
 const rockBTN = document.getElementById('rockBtn');
 const paperBTN = document.getElementById('paperBtn');
 const scissorsBTN = document.getElementById('scissorsBtn');
@@ -14,6 +16,24 @@ const scissorsBTN = document.getElementById('scissorsBtn');
 rockBTN.addEventListener('click', playRound);
 paperBTN.addEventListener('click', playRound);
 scissorsBTN.addEventListener('click', playRound);
+*/
+
+
+const rpsButtons = document.querySelectorAll('.playerChoice');
+
+rpsButtons.forEach(x => {
+    x.addEventListener('click', function() {
+        myFunction(this);
+        
+    })
+});
+
+function myFunction(el) {
+    //console.log(el);
+    //let text = el.textContent;
+    //console.log(text);
+   playRound(el.textContent)
+}
 
 
 //start the game!
@@ -77,10 +97,12 @@ function playRound(playerChoice) {
                     break;
                 
                 case "paper":
+                    console.log("Lose");
                     return "lose";
                     break;
 
                 case "scissors":
+                    console.log("Win");
                     return "win";
                     break;
             }
@@ -88,6 +110,7 @@ function playRound(playerChoice) {
         case "paper":
             switch (computerChoice) {
                 case "rock":
+                    console.log("Win");
                     return "win";
                     break;
                 
@@ -97,6 +120,7 @@ function playRound(playerChoice) {
                     break;
 
                 case "scissors":
+                    console.log("Lose");
                     return "lose";
                     break;
             }
@@ -104,10 +128,12 @@ function playRound(playerChoice) {
         case "scissors":
             switch (computerChoice) {
                 case "rock":
+                    console.log("Lose");
                     return "lose";
                     break;
                 
                 case "paper":
+                    console.log("Win");
                     return "win";
                     break;
 
