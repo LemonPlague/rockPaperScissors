@@ -3,26 +3,30 @@
 let playerChoice;
 let computerChoice;
 //string variable to pass from playRound() to game()
-let score;
+let score = '';
 //integer variable to count number of games played.
 let gameCount = 0;
 
+let playerScore = 0;
+let computerScore = 0;
 
+
+//get buttons so they can be used with addEventListener
 const rpsButtons = document.querySelectorAll('.playerChoice');
-
+//addEventListener so when they are clicked a round is played
+//while player choice is determined by the clicked button.
 rpsButtons.forEach(x => {
     x.addEventListener('click', function() {
-        myFunction(this);
-        
+        myFunction(this);        
     })
 });
 
 function myFunction(button) {
-    //console.log(button);
-    //let text = button.textContent;
-    //console.log(text);
    playRound(button.textContent)
 }
+
+//get the div so that results can be displayed there instead of in console
+const resultDisplayDiv = document.querySelector('div');
 
 
 //start the game!
@@ -70,7 +74,7 @@ function getComputerChoice () {
 //This function will play a single round of Rock Paper Scissors
 //with the results being logged in the console.
 function playRound(playerChoice) {
-
+    gameCount ++;
     computerChoice = getComputerChoice();
 
 
@@ -78,85 +82,70 @@ function playRound(playerChoice) {
         case "rock":
             switch (computerChoice) {
                 case "rock":
-                    console.log("Draw");
-                    return "draw";
+                    resultDisplayDiv.textContent = "Draw."
+                    score = "draw";
                     break;
                 
                 case "paper":
-                    console.log("Lose");
-                    return "lose";
+                    resultDisplayDiv.textContent = "Surprise Mother Fucker. You Lose."
+                    score = "lose";
                     break;
 
                 case "scissors":
-                    console.log("Win");
-                    return "win";
+                    resultDisplayDiv.textContent = "Take your win and fuck right off!"
+                    score = "win";
                     break;
             }
         
         case "paper":
             switch (computerChoice) {
                 case "rock":
-                    console.log("Win");
-                    return "win";
+                    resultDisplayDiv.textContent = "Take your win and fuck right off!"
+                    score = "win";
                     break;
                 
                 case "paper":
-                    console.log("Draw");
-                    return "draw";
+                    resultDisplayDiv.textContent = "Draw."
+                    score = "draw";
                     break;
 
                 case "scissors":
-                    console.log("Lose");
-                    return "lose";
+                    resultDisplayDiv.textContent = "Surprise Mother Fucker. You Lose."
+                    score = "lose";
                     break;
             }
 
         case "scissors":
             switch (computerChoice) {
                 case "rock":
-                    console.log("Lose");
-                    return "lose";
+                    resultDisplayDiv.textContent = "Surprise Mother Fucker. You Lose."
+                    score = "lose";
                     break;
                 
                 case "paper":
-                    console.log("Win");
-                    return "win";
+                    resultDisplayDiv.textContent = "Take your win and fuck right off!"
+                    score = "win";
                     break;
 
                 case "scissors":
-                    console.log("Draw");
-                    return "draw";
+                    resultDisplayDiv.textContent = "Draw."
+                    score = "draw";
                     break;
             }
     }
-}
 
-//the following logic is to automatically play a set of 5 games
-/*
-function game(score)  {
-    let playerScore = 0;
-    let computerScore = 0;
+    switch (score) {
+        case "win":
+            playerScore ++;
+            console.log(`You win round ${gameCount}`)
+            break;
 
-    for (let i = 1; i <= 5; i ++) {
-        gameCount = i;
-        playerChoice = getPlayerChoice();
-        computerChoice = getComputerChoice();
-        score = playRound();
-
-        switch (score) {
-            case "win":
-                playerScore ++;
-                console.log(`You win round ${gameCount}`)
-                break;
-
-            case "lose":
-                computerScore ++;
-                console.log(`You lose round ${gameCount}`)
-                break;
-        }        
+        case "lose":
+            computerScore ++;
+            console.log(`You lose round ${gameCount}`)
+            break;
     }
     
-
     
     switch (gameCount) {
         case 5:
@@ -169,5 +158,6 @@ function game(score)  {
             }
             break;
     }
-    
-}  */
+
+
+}
