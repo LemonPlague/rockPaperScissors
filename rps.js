@@ -26,25 +26,10 @@ function myFunction(button) {
 }
 
 //get the div so that results can be displayed there instead of in console
-const resultDisplayDiv = document.querySelector('div');
+const roundDisplayDiv = document.getElementById('roundResult');
+const runningScoreDiv = document.getElementById('runningScore')
 
 
-//start the game!
-//game();
-
-
-
-
-//function to get the player's choice via prompt. Player will type their choice
-//which is received as a string and returned.
-/*
-function getPlayerChoice() {
-    let x = prompt("rock, paper or scissors?", "");
-    let y = x.toLowerCase();
-    console.log(`Player throws ${y}`)
-    return y;
-} 
-*/
 
 
 //function to get the computer's choice. This function will randomly select a number
@@ -82,17 +67,17 @@ function playRound(playerChoice) {
         case "rock":
             switch (computerChoice) {
                 case "rock":
-                    resultDisplayDiv.textContent = "Draw."
+                    roundDisplayDiv.textContent = "Draw."
                     score = "draw";
                     break;
                 
                 case "paper":
-                    resultDisplayDiv.textContent = "Surprise Mother Fucker. You Lose."
+                    roundDisplayDiv.textContent = "Surprise Mother Fucker. You Lose."
                     score = "lose";
                     break;
 
                 case "scissors":
-                    resultDisplayDiv.textContent = "Take your win and fuck right off!"
+                    roundDisplayDiv.textContent = "Take your win and fuck right off!"
                     score = "win";
                     break;
             }
@@ -100,17 +85,17 @@ function playRound(playerChoice) {
         case "paper":
             switch (computerChoice) {
                 case "rock":
-                    resultDisplayDiv.textContent = "Take your win and fuck right off!"
+                    roundDisplayDiv.textContent = "Take your win and fuck right off!"
                     score = "win";
                     break;
                 
                 case "paper":
-                    resultDisplayDiv.textContent = "Draw."
+                    roundDisplayDiv.textContent = "Draw."
                     score = "draw";
                     break;
 
                 case "scissors":
-                    resultDisplayDiv.textContent = "Surprise Mother Fucker. You Lose."
+                    roundDisplayDiv.textContent = "Surprise Mother Fucker. You Lose."
                     score = "lose";
                     break;
             }
@@ -118,17 +103,17 @@ function playRound(playerChoice) {
         case "scissors":
             switch (computerChoice) {
                 case "rock":
-                    resultDisplayDiv.textContent = "Surprise Mother Fucker. You Lose."
+                    roundDisplayDiv.textContent = "Surprise Mother Fucker. You Lose."
                     score = "lose";
                     break;
                 
                 case "paper":
-                    resultDisplayDiv.textContent = "Take your win and fuck right off!"
+                    roundDisplayDiv.textContent = "Take your win and fuck right off!"
                     score = "win";
                     break;
 
                 case "scissors":
-                    resultDisplayDiv.textContent = "Draw."
+                    roundDisplayDiv.textContent = "Draw."
                     score = "draw";
                     break;
             }
@@ -137,12 +122,12 @@ function playRound(playerChoice) {
     switch (score) {
         case "win":
             playerScore ++;
-            console.log(`You win round ${gameCount}`)
+            runningScoreDiv.textContent = `You win round ${gameCount}`;
             break;
 
         case "lose":
             computerScore ++;
-            console.log(`You lose round ${gameCount}`)
+            runningScoreDiv.textContent = `You lose round ${gameCount}`;
             break;
     }
     
@@ -150,11 +135,11 @@ function playRound(playerChoice) {
     switch (gameCount) {
         case 5:
             if (playerScore > computerScore) {
-                console.log(`Player is victorious with ${playerScore} of 5 wins!`);
+                runningScoreDiv.textContent = `Player is victorious with ${playerScore} of 5 wins!`;
             } else if (computerScore > playerScore) {
-                console.log(`Computer is victorious with ${computerScore} of 5 wins`);
+                runningScoreDiv.textContent = `Computer is victorious with ${computerScore} of 5 wins`;
             } else {
-                console.log(`Player has ${playerScore} wins, Computer has ${computerScore} wins. It's a draw.`)
+                runningScoreDiv.textContent = `Player has ${playerScore} wins, Computer has ${computerScore} wins. It's a draw.`;
             }
             break;
     }
