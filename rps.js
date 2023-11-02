@@ -70,7 +70,6 @@ function playRound(playerChoice) {
         case "rock":
             switch (computerChoice) {
                 case "rock":
-                    roundDisplayDiv.textContent = "Draw."
                     score = "draw";
                     break;
                 
@@ -94,7 +93,6 @@ function playRound(playerChoice) {
                     break;
                 
                 case "paper":
-                    roundDisplayDiv.textContent = "Draw."
                     score = "draw";
                     break;
 
@@ -118,7 +116,6 @@ function playRound(playerChoice) {
                     break;
 
                 case "scissors":
-                    roundDisplayDiv.textContent = "Draw."
                     score = "draw";
                     break;
             }
