@@ -22,7 +22,7 @@ rpsButtons.forEach(x => {
 });
 
 function myFunction(button) {
-    playerChoiceDiv.textContent = `You throw ${button.textContent}`;
+    playerChoiceDiv.textContent = `You throw ${button.textContent}.`;
    playRound(button.textContent);
 }
 
@@ -43,7 +43,7 @@ function getComputerChoice () {
     let x = Math.floor((Math.random() * 3) + 1);
     switch (x) {
         case 1:
-            cpuSChoice.textContent = `Computer throws rock`;
+            cpuSChoice.textContent = `Computer throws rock.`;
             return "rock"
             break;
 
@@ -75,7 +75,7 @@ function playRound(playerChoice) {
                     break;
                 
                 case "paper":
-                    roundDisplayDiv.textContent = "Surprise Mother Fucker. You Lose."
+                    roundDisplayDiv.textContent = "Surprise Mother Fucker."
                     score = "lose";
                     break;
 
@@ -99,7 +99,7 @@ function playRound(playerChoice) {
                     break;
 
                 case "scissors":
-                    roundDisplayDiv.textContent = "Surprise Mother Fucker. You Lose."
+                    roundDisplayDiv.textContent = "Surprise Mother Fucker."
                     score = "lose";
                     break;
             }
@@ -108,7 +108,7 @@ function playRound(playerChoice) {
         case "scissors":
             switch (computerChoice) {
                 case "rock":
-                    roundDisplayDiv.textContent = "Surprise Mother Fucker. You Lose."
+                    roundDisplayDiv.textContent = "Surprise Mother Fucker."
                     score = "lose";
                     break;
                 
@@ -128,16 +128,16 @@ function playRound(playerChoice) {
     switch (score) {
         case "win":
             playerScore ++;
-            runningScoreDiv.textContent = `You win round ${gameCount}`;
+            runningScoreDiv.textContent = `You win round ${gameCount} for a total of ${playerScore} wins.`;
             break;
 
         case "lose":
             computerScore ++;
-            runningScoreDiv.textContent = `You lose round ${gameCount}`;
+            runningScoreDiv.textContent = `You lose round ${gameCount}.`;
             break;
 
         case "draw":
-            runningScoreDiv.textContent = `Round ${gameCount} ends in a draw`;
+            runningScoreDiv.textContent = `Round ${gameCount} ends in a draw.`;
             break;
     }
     
@@ -145,9 +145,9 @@ function playRound(playerChoice) {
     switch (gameCount) {
         case 5:
             if (playerScore > computerScore) {
-                runningScoreDiv.textContent = `Player is victorious with ${playerScore} of 5 wins!`;
+                runningScoreDiv.textContent = `Player is victorious with ${playerScore} wins of ${gameCount} games!`;
             } else if (computerScore > playerScore) {
-                runningScoreDiv.textContent = `Computer is victorious with ${computerScore} of 5 wins`;
+                runningScoreDiv.textContent = `Computer is victorious with ${computerScore} wins of ${gameCount} games!`;
             } else {
                 runningScoreDiv.textContent = `Player has ${playerScore} wins, Computer has ${computerScore} wins. It's a draw.`;
             }
