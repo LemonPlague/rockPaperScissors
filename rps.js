@@ -22,10 +22,12 @@ rpsButtons.forEach(x => {
 });
 
 function myFunction(button) {
+    playerChoiceDiv.textContent = `You throw ${button.textContent}`;
    playRound(button.textContent);
 }
 
 //get the div so that results can be displayed there instead of in console
+const playerChoiceDiv = document.getElementById('playerChooses');
 const cpuSChoice = document.getElementById('cpuChoice');
 const roundDisplayDiv = document.getElementById('roundResult');
 const runningScoreDiv = document.getElementById('runningScore');
@@ -62,13 +64,10 @@ function getComputerChoice () {
 function playRound(playerChoice) {
     gameCount ++;
     computerChoice = getComputerChoice();
-    console.log(`inside playRound function, the CPU choice is ${computerChoice}`)
 
 
     switch (playerChoice)  {
         case "rock":
-            console.log(`Switch - playerChoice in playRound says you threw ${playerChoice}`)
-            console.log(`inside playRound function switch block, the CPU choice is ${computerChoice}`)
             switch (computerChoice) {
                 case "rock":
                     roundDisplayDiv.textContent = "Draw."
@@ -88,7 +87,6 @@ function playRound(playerChoice) {
             break;
         
         case "paper":
-            console.log(`Switch - playerChoice in playRound says you threw ${playerChoice}`)
             switch (computerChoice) {
                 case "rock":
                     roundDisplayDiv.textContent = "Take your win and fuck right off!"
@@ -108,7 +106,6 @@ function playRound(playerChoice) {
             break;
 
         case "scissors":
-            console.log(`Switch - playerChoice in playRound says you threw ${playerChoice}`)
             switch (computerChoice) {
                 case "rock":
                     roundDisplayDiv.textContent = "Surprise Mother Fucker. You Lose."
@@ -137,6 +134,10 @@ function playRound(playerChoice) {
         case "lose":
             computerScore ++;
             runningScoreDiv.textContent = `You lose round ${gameCount}`;
+            break;
+
+        case "draw":
+            runningScoreDiv.textContent = `Round ${gameCount} ends in a draw`;
             break;
     }
     
