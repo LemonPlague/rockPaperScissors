@@ -1,7 +1,7 @@
 //declare variables and their values are assigned by the functions below.
 //these variables will hold strings corresponding to either rock, paper, scissors.
-let playerChoice;
-let computerChoice;
+let playerChoice = '';
+let computerChoice = '';
 //string variable to pass from playRound() to game()
 let score = '';
 //integer variable to count number of games played.
@@ -22,12 +22,13 @@ rpsButtons.forEach(x => {
 });
 
 function myFunction(button) {
-   playRound(button.textContent)
+   playRound(button.textContent);
 }
 
 //get the div so that results can be displayed there instead of in console
+const cpuSChoice = document.getElementById('cpuChoice');
 const roundDisplayDiv = document.getElementById('roundResult');
-const runningScoreDiv = document.getElementById('runningScore')
+const runningScoreDiv = document.getElementById('runningScore');
 
 
 
@@ -40,17 +41,17 @@ function getComputerChoice () {
     let x = Math.floor((Math.random() * 3) + 1);
     switch (x) {
         case 1:
-            console.log(`Computer throws rock`);
+            cpuSChoice.textContent = `Computer throws rock`;
             return "rock"
             break;
 
         case 2:
-            console.log("Computer throws paper.");
+            cpuSChoice.textContent = "Computer throws paper.";
             return "paper"                
             break;
 
         case 3:
-            console.log(`Computer throws scissors`);
+            cpuSChoice.textContent = `Computer throws scissors`;
             return "scissors"                
             break;
     }
@@ -61,10 +62,13 @@ function getComputerChoice () {
 function playRound(playerChoice) {
     gameCount ++;
     computerChoice = getComputerChoice();
+    console.log(`inside playRound function, the CPU choice is ${computerChoice}`)
 
 
     switch (playerChoice)  {
         case "rock":
+            console.log(`Switch - playerChoice in playRound says you threw ${playerChoice}`)
+            console.log(`inside playRound function switch block, the CPU choice is ${computerChoice}`)
             switch (computerChoice) {
                 case "rock":
                     roundDisplayDiv.textContent = "Draw."
@@ -81,8 +85,10 @@ function playRound(playerChoice) {
                     score = "win";
                     break;
             }
+            break;
         
         case "paper":
+            console.log(`Switch - playerChoice in playRound says you threw ${playerChoice}`)
             switch (computerChoice) {
                 case "rock":
                     roundDisplayDiv.textContent = "Take your win and fuck right off!"
@@ -99,8 +105,10 @@ function playRound(playerChoice) {
                     score = "lose";
                     break;
             }
+            break;
 
         case "scissors":
+            console.log(`Switch - playerChoice in playRound says you threw ${playerChoice}`)
             switch (computerChoice) {
                 case "rock":
                     roundDisplayDiv.textContent = "Surprise Mother Fucker. You Lose."
@@ -117,6 +125,7 @@ function playRound(playerChoice) {
                     score = "draw";
                     break;
             }
+            break;
     }
 
     switch (score) {
